@@ -20,4 +20,12 @@ export class UsersRepository {
       },
     });
   }
+
+  findById(id: number) {
+    return this.prismaService.user.findUnique({
+      where: {
+        id,
+      },
+    });
+  }
 }

@@ -21,4 +21,8 @@ export class UsersService {
 
     return user;
   }
+
+  async findById(id: number) {
+    return this.usersRepository.findById(id);
+  }
 }

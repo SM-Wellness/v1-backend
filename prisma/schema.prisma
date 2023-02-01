@@ -16,4 +16,32 @@ model User {
   updatedAt                 DateTime                    @updatedAt
   email                     String?                     @unique
   password                  String?
+
+  userHealthInfo            UserHealthInfo[]
+}
+
+enum Smoking {
+  moreOnePack
+  morehalfPack
+  lesshalfPack
+  noSmoking
+}
+
+model UserHealthInfo {
+  id              Int       @id @default(autoincrement())
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  userId          Int       @unique
+  smoking         Smoking?
+  alcohol         Int?
+  bigThree        Int?
+  bmi             Int?
+  sugarLevel      Int?
+  bloodPressure   Int?
+  todayCalorie    Int?
+  todayWater      Int?
+  todaySteps      Int?
+  liverLevels     Int?
+
+  user            User      @relation(fields: [userId], references: [id])
 }

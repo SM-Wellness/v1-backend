@@ -4,6 +4,7 @@ import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from '@app/prisma';
 import { JwtModule } from '@app/jwt';
+import { UserHealthInfoModule } from './user-health-info/user-health-info.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { JwtModule } from '@app/jwt';
     UsersModule,
     PrismaModule,
     JwtModule,
+    UserHealthInfoModule,
   ],
   controllers: [],
   providers: [],
