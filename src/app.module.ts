@@ -5,6 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from '@app/prisma';
 import { JwtModule } from '@app/jwt';
 import { UserHealthInfoModule } from './user-health-info/user-health-info.module';
+import { BoardsModule } from './boards/boards.module';
+import { DummyModule } from './dummy/dummy.module';
 
 @Module({
   imports: [
@@ -17,6 +19,8 @@ import { UserHealthInfoModule } from './user-health-info/user-health-info.module
     PrismaModule,
     JwtModule,
     UserHealthInfoModule,
+    BoardsModule,
+    DummyModule,
   ],
   controllers: [],
   providers: [],

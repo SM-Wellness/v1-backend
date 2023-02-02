@@ -14,17 +14,11 @@ model User {
   id                        Int                         @default(autoincrement()) @id
   createdAt                 DateTime                    @default(now())
   updatedAt                 DateTime                    @updatedAt
-  email                     String?                     @unique
-  password                  String?
+  email                     String                      @unique
+  password                  String
 
   userHealthInfo            UserHealthInfo[]
-}
-
-enum Smoking {
-  moreOnePack
-  morehalfPack
-  lesshalfPack
-  noSmoking
+  boards                    Boards[]
 }
 
 model UserHealthInfo {
@@ -32,7 +26,7 @@ model UserHealthInfo {
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
   userId          Int       @unique
-  smoking         Smoking?
+  smoking         Int?
   alcohol         Int?
   bigThree        Int?
   bmi             Int?
@@ -44,4 +38,30 @@ model UserHealthInfo {
   liverLevels     Int?
 
   user            User      @relation(fields: [userId], references: [id])
+}
+
+model Boards {
+  id              Int       @id @default(autoincrement())
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  userId          Int
+  title           String
+  contents        String
+  imgUrl          String
+
+  user            User      @relation(fields: [userId], references: [id])
+}
+
+model dummyData {
+  id              Int       @id @default(autoincrement())
+  smoking         Int?
+  alcohol         Int?
+  bigThree        Int?
+  bmi             Int?
+  sugarLevel      Int?
+  bloodPressure   Int?
+  todayCalorie    Int?
+  todayWater      Int?
+  todaySteps      Int?
+  liverLevels     Int?
 }

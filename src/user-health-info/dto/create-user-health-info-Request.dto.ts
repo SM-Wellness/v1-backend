@@ -1,11 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Smoking } from '@prisma/client';
-import { IsEnum } from 'class-validator';
 
 export class CreateUserHealthInfoRequestDto {
   @ApiProperty()
-  @IsEnum(Smoking)
-  readonly smoking: Smoking;
+  readonly smoking: number;
 
   @ApiProperty()
   readonly alcohol: number;
