@@ -2,10 +2,10 @@ name: CI/CD Docker
 
 on:
   push:
-    branches: [test] #브런츠 명 ex) [production, test]
+    branches: ["main"] #브런츠 명 ex) [production, test]
 
 env:
-  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/{repository명}
+  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/{v1-backend}
   VERSION: ${{ github.sha }}
   NAME: cicd_test
 
